@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment - YAZDANI TUITIONS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <header class="bg-light text-dark py-3 d-flex align-items-center justify-content-between px-4">
+        <div class="d-flex align-items-center">
+            <img src="logo.png" alt="YAZDANI TUITIONS" style="height: 90px; margin-right: 20px;">
+            <h1 class="mb-0 font-weight-bold" style="font-size: 32px;">YAZDANI TUITIONS</h1>
+        </div>
+        <nav class="navbar navbar-expand-lg" style="background-color: #f8f9fa; padding: 10px; border-radius: 5px;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link text-dark" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="enrollment.html">Enrollment</a></li>
+                </ul>
+            </div>
+        </nav>
+        <a href="https://wa.me/923402716306" class="ml-3">
+            <img src="phoneicon.png" alt="WhatsApp Us" style="height: 50px;">
+        </a>
+    </header>
+
+    <div class="container mt-4">
+        <h2 class="text-center">Enroll Now</h2>
+        <p class="text-center">Fill in the details below to enroll for our tutoring services.</p>
+
+        <form id="enrollmentForm">
+            <div class="form-group">
+                <label for="name">Student Name:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="class">Class:</label>
+                <select id="class" name="class" class="form-control" required>
+                    <option value="">Select Class</option>
+                    <option value="1">Class 1</option>
+                    <option value="2">Class 2</option>
+                    <option value="3">Class 3</option>
+                    <option value="4">Class 4</option>
+                    <option value="5">Class 5</option>
+                    <option value="6">Class 6</option>
+                    <option value="7">Class 7</option>
+                    <option value="8">Class 8</option>
+                    <option value="9">Class 9</option>
+                    <option value="10">Class 10</option>
+                    <option value="11">Class 11</option>
+                    <option value="12">Class 12</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="board">Education Board:</label>
+                <select id="board" name="board" class="form-control" required>
+                    <option value="">Select Board</option>
+                    <option value="Sindh">Sindh Board</option>
+                    <option value="Federal">Federal Board</option>
+                    <option value="AKU">AKU Board</option>
+                    <option value="Punjab">Punjab Board</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="subjects">Subjects:</label>
+                <input type="text" id="subjects" name="subjects" class="form-control" placeholder="Enter subjects (comma-separated)" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tutor_preference">Tutor Preference:</label>
+                <select id="tutor_preference" name="tutor_preference" class="form-control" required>
+                    <option value="">Select Preference</option>
+                    <option value="Online">Online</option>
+                    <option value="Physical">Physical</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" class="form-control"
+                       placeholder="0300-0000000"
+                       pattern="[0-9]{4}-[0-9]{7}"
+                       required
+                       onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 45;">
+                <small class="form-text text-muted">Format: 0300-0000000</small>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>&copy; 2025 YAZDANI TUITIONS. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script>
+        (function(){
+            emailjs.init("UYksRejBC6Gkhhqnq"); // Replace with your EmailJS Public Key
+        })();
+
+        document.getElementById("enrollmentForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent actual form submission
+
+            // Get form values
+            let name = document.getElementById("name").value;
+            let selectedClass = document.getElementById("class").value;
+            let board = document.getElementById("board").value;
+            let subjects = document.getElementById("subjects").value;
+            let tutorPreference = document.getElementById("tutor_preference").value;
+            let phone = document.getElementById("phone").value;
+
+            // Prepare email parameters
+            let emailParams = {
+                student_name: name,
+                student_class: selectedClass,
+                education_board: board,
+                student_subjects: subjects,
+                tutor_preference: tutorPreference,
+                phone_number: phone
+            };
+
+            // Send email using EmailJS
+            emailjs.send("service_7seroyc", "template_xy7iplw", emailParams)
+                .then(function(response) {
+                    alert("Enrollment Details Submitted Successfully!");
+                    document.getElementById("enrollmentForm").reset();
+                }, function(error) {
+                    alert("Failed to send email. Please try again later.");
+                    console.error("EmailJS Error:", error);
+                });
+        });
+    </script>
+
+</body>
+</html>
