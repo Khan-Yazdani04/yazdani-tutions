@@ -91,11 +91,11 @@
             <div class="form-group">
                 <label for="phone">Phone Number:</label>
                 <input type="tel" id="phone" name="phone" class="form-control"
-                       placeholder="0300-0000000"
-                       pattern="[0-9]{4}-[0-9]{7}"
+                       placeholder="03000000000"
+                       pattern="[0-9]{11}"
                        required
-                       onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 45;">
-                <small class="form-text text-muted">Format: 0300-0000000</small>
+                       onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                <small class="form-text text-muted">Format: 03000000000 (11 digits)</small>
             </div>
 
             <button type="submit" class="btn btn-primary btn-block">Submit</button>
