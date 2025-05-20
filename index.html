@@ -1,0 +1,153 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home - YAZDANI TUITIONS</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body>
+  <header class="bg-light text-dark py-3 d-flex align-items-center justify-content-between px-4">
+    <div class="d-flex align-items-center">
+      <img src="logo.png" alt="YAZDANI TUITIONS" style="height: 90px; margin-right: 20px;" />
+      <h1 class="mb-0 font-weight-bold" style="font-size: 32px;">YAZDANI TUITIONS</h1>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="enrollment.html">Enrollment</a></li>
+          <li class="nav-item"><a class="nav-link" href="tutor-registration.html">Tutor Registration</a></li>
+        </ul>
+      </div>
+    </nav>
+    <a href="https://wa.me/923402716306" class="ml-3">
+      <img src="phoneicon.png" alt="WhatsApp Us" style="height: 50px;" />
+    </a>
+  </header>
+
+  <div class="container mt-4">
+    <section class="text-center">
+      <h1 class="display-4 font-weight-bold">Hire Expert Tutors</h1>
+    </section>
+
+    <!-- Carousel Section -->
+    <section class="mt-5 text-center">
+      <div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel" style="max-width: 800px;">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="slide1.jpg" class="d-block w-100" alt="Slide 1" />
+          </div>
+          <div class="carousel-item">
+            <img src="slide2.jpg" class="d-block w-100" alt="Slide 2" />
+          </div>
+          <div class="carousel-item">
+            <img src="slide3.jpg" class="d-block w-100" alt="Slide 3" />
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Action Buttons Section -->
+    <div class="container mt-4">
+      <section class="text-center">
+        <p>Learn anything, choose a tutor conveniently!</p>
+        <div class="text-center mt-3">
+          <a href="enrollment.html" class="btn btn-primary btn-lg mb-3">Get Started</a><br />
+          <a href="tutor-registration.html" class="btn btn-outline-success btn-lg">Register as a Tutor</a>
+        </div>
+      </section>
+
+      <!-- Courses Section -->
+      <section class="mt-5">
+        <h2 class="text-center">Our Courses</h2>
+        <div class="row mt-4">
+          <div class="col-md-4">
+            <div class="card">
+              <img src="image1.jpg" class="card-img-top" alt="Math Class" />
+              <div class="card-body">
+                <h5 class="card-title">Mathematics</h5>
+                <p class="card-text">Master algebra, geometry, and calculus with expert tutors.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="image2.jpg" class="card-img-top" alt="Science Class" />
+              <div class="card-body">
+                <h5 class="card-title">Science</h5>
+                <p class="card-text">Explore Physics and Chemistry with hands-on learning.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="image3.jpg" class="card-img-top" alt="Computer Class" />
+              <div class="card-body">
+                <h5 class="card-title">Computer Science</h5>
+                <p class="card-text">Improve coding and logical skills with expert guidance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="mt-5">
+        <h2 class="text-center">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button class="btn btn-link text-dark font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseOne">
+                  What subjects do you offer?
+                </button>
+              </h2>
+            </div>
+            <div id="collapseOne" class="collapse show" data-parent="#faqAccordion">
+              <div class="card-body">
+                We offer Mathematics, Science, and Computer Science tutoring.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h2 class="mb-0">
+                <button class="btn btn-link text-dark font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseTwo">
+                  How can I enroll?
+                </button>
+              </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" data-parent="#faqAccordion">
+              <div class="card-body">
+                You can enroll by filling out the enrollment form on our website.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+      <p>&copy; 2025 YAZDANI TUITIONS. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

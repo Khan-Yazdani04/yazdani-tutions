@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutor Registration - YAZDANI TUITIONS</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <header class="bg-light text-dark py-3 d-flex align-items-center justify-content-between px-4">
+    <div class="d-flex align-items-center">
+      <img src="logo.png" alt="YAZDANI TUITIONS" style="height: 90px; margin-right: 20px;">
+      <h1 class="mb-0 font-weight-bold" style="font-size: 32px;">YAZDANI TUITIONS</h1>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="enrollment.html">Enrollment</a></li>
+          <li class="nav-item"><a class="nav-link" href="tutor-registration.html">Tutor Registration</a></li>
+        </ul>
+      </div>
+    </nav>
+    <a href="https://wa.me/923402716306" class="ml-3">
+      <img src="phoneicon.png" alt="WhatsApp Us" style="height: 50px;">
+    </a>
+  </header>
+
+  <div class="container mt-5 mb-5">
+    <h2 class="text-center mb-4">Tutor Registration Form</h2>
+    <form id="tutorForm" class="p-4 shadow bg-white rounded">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="Name" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="qualification">Qualification</label>
+        <input type="text" id="qualification" name="Qualification" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="experience">Teaching Experience (years)</label>
+        <input type="number" id="experience" name="Experience" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="subjects">Subjects You Teach</label>
+        <input type="text" id="subjects" name="Subjects" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="mode">Mode of Teaching</label>
+        <select id="mode" name="Mode" class="form-control" required>
+          <option value="">Select</option>
+          <option value="Online">Online</option>
+          <option value="Physical">Physical</option>
+          <option value="Both">Both</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="Phone" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-success btn-block">Register</button>
+    </form>
+    <div id="tutorAlert" class="alert alert-success mt-3 d-none" role="alert">
+      ✅ Your registration was submitted successfully!
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3 mt-auto">
+    <p>&copy; 2025 YAZDANI TUITIONS. All rights reserved.</p>
+  </footer>
+
+  <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzRedHNFvHMECkaKB_FPdBKQP_Lfuq3m0fcA_sMcbmMbuPORyaKMpdmSqAO6EPGjsWplw/exec'; // use your correct URL
+const tutorForm = document.getElementById('tutorForm');
+const tutorAlert = document.getElementById('tutorAlert');
+const submitButton = tutorForm.querySelector('button[type="submit"]');
+
+tutorForm.addEventListener('submit', e => {
+  e.preventDefault();
+  submitButton.disabled = true;
+
+  const formData = new FormData(tutorForm);
+
+  fetch(scriptURL, { method: 'POST', body: formData })
+    .then(response => {
+      if (!response.ok) throw new Error("Network response was not ok");
+      tutorForm.reset();
+      tutorAlert.classList.remove('d-none');
+      setTimeout(() => {
+        tutorAlert.classList.add('d-none');
+        submitButton.disabled = false;
+      }, 5000);
+    })
+    .catch(error => {
+      console.error('Error!', error.message);
+      alert('❌ Something went wrong. Please try again.');
+      submitButton.disabled = false;
+    });
+});
+</script>
+</body>
+</html>
